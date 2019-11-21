@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      task:           #model名
+    attributes:
+      task:           #model名
+        title: タスク名 #カラム名
