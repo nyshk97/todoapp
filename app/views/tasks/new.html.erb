@@ -1,4 +1,13 @@
 <h1>新規タスク</h1>
+<% if @task.errors.any? %>
+  <div>
+    <ul style="color: red">
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_for(@task) do |f| %>
   <div><%= f.label :title %></div>
   <div><%= f.text_field :title %></div>

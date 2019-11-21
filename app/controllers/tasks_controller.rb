@@ -8,8 +8,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
-    redirect_to tasks_path
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to tasks_path
+    else
+      render 'tasks/new'
+    end
   end
 
   def edit
@@ -18,8 +22,11 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to tasks_url
+    if @task.update(task_params)
+      redirect_to tasks_url
+    else
+      render 'tasks/edit'
+    end
   end
 
   def destroy
