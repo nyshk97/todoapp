@@ -1,13 +1,5 @@
 <h1>タスク編集</h1>
-<% if @task.errors.any? %>
-  <div>
-    <ul style="color: red">
-      <% @task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'shared/error_messages' %>
 <%= form_for(@task) do |f| %>
   <div><%= f.label :title %></div>
   <div><%= f.text_field :title %></div>
