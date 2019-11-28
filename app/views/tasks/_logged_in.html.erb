@@ -17,3 +17,7 @@
 </table>
 <%= link_to "タスク追加", new_task_path %>
 <%= link_to "ログアウト", logout_path, method: :delete %>
+<%= form_tag import_tasks_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート" %>
+<% end %>

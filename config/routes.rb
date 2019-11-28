@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   root 'tasks#index'
-  resources :tasks
+  resources :tasks do
+    collection {post :import}
+  end
 end
